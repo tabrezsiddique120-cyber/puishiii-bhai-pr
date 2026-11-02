@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OfferTrap helps students spot common warning signs in internship offers.">
+  <title>OfferTrap — Spot the red flags. Stay safe.</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="OfferTrap home">
+      <span class="brand-mark" aria-hidden="true">⚠</span>
+      <span>Offer<span class="accent">Trap</span></span>
+    </a>
+    <p class="tagline">Spot the red flags. Stay safe.</p>
+    <nav aria-label="Main navigation">
+      <a href="#analyzer">Analyzer</a>
+      <a href="#checklist">Checklist</a>
+      <a href="#tips">Safety tips</a>
+    </nav>
+    <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle theme">☼</button>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" id="analyzer">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> INTERNSHIP OFFER CHECK</p>
+        <h1>Is this offer <span class="accent">legit?</span></h1>
+        <p class="hero-description">Paste an internship or job offer. We’ll look for common warning signs and show you what to verify before you respond.</p>
+        <div class="privacy-note"><span aria-hidden="true">🔒</span> Your text is analysed in this browser and isn’t uploaded anywhere.</div>
+      </div>
+
+      <section class="panel input-panel" aria-labelledby="inputTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">STEP 01</p>
+            <h2 id="inputTitle">Paste offer details</h2>
+          </div>
+          <span class="pill">Browser-based scan</span>
+        </div>
+        <label class="sr-only" for="offerText">Internship or job offer text</label>
+        <textarea id="offerText" maxlength="5000" placeholder="Paste the job description, email, or message here…"></textarea>
+        <div class="input-meta"><span id="charCount">0 / 5000</span><button class="text-button" id="clearBtn" type="button">Clear text</button></div>
+        <div class="input-actions">
+          <button class="button button-primary" id="analyzeBtn" type="button"><span aria-hidden="true">⌕</span> Analyze offer</button>
+          <button class="button button-secondary" id="sampleBtn" type="button">Try sample offer</button>
+        </div>
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+
+    <section class="results-grid" aria-live="polite">
+      <section class="panel result-panel" id="resultsPanel" aria-labelledby="resultTitle">
+        <div class="result-topline">
+          <div class="result-symbol" id="resultSymbol" aria-hidden="true">?</div>
+          <div class="result-heading">
+            <p class="eyebrow">YOUR SCAN SUMMARY</p>
+            <h2 id="resultTitle">Your results will appear here</h2>
+            <p id="resultSummary" class="muted">Paste an offer and select “Analyze offer” to check for warning signs.</p>
+          </div>
+          <div class="score-wrap">
+            <strong id="riskScore">—</strong>
+            <span>Risk indicator</span>
+          </div>
+        </div>
+        <div class="meter" role="progressbar" aria-label="Risk indicator" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="riskMeter">
+          <div class="meter-fill" id="meterFill"></div>
+        </div>
+        <div class="result-section">
+          <div class="section-title-row">
+            <h3>🚩 Warning signs found</h3>
+            <span class="count-badge" id="flagCount">0</span>
+          </div>
+          <div class="flags-list" id="flagsList">
+            <div class="empty-state"><span>✳</span><p>Your findings will show up here, with explanations and phrases to double-check.</p></div>
+          </div>
+        </div>
+        <div class="result-section">
+          <h3>Offer text with highlights</h3>
+          <div class="highlight-box" id="highlightBox">Your analysed text will appear here. Highlighted phrases are potential warning signs, not proof of fraud.</div>
+        </div>
+        <p class="disclaimer"><strong>Important:</strong> This tool uses simple keyword and pattern matching. It cannot verify a company’s identity or prove that an offer is fraudulent. Always verify independently.</p>
+      </section>
+
+      <aside class="side-column">
+        <section class="panel mini-panel" id="tips">
+          <div class="mini-heading"><span class="mini-icon amber">✦</span><div><h2>What to watch for</h2><p>Common warning signs</p></div></div>
+          <ul class="tip-list">
+            <li><span class="bullet amber-bg">!</span><span>Registration, training, or security fees to get hired</span></li>
+            <li><span class="bullet amber-bg">!</span><span>Unusually high pay or guaranteed earnings</span></li>
+            <li><span class="bullet amber-bg">!</span><span>Requests for bank details, passwords, or identity documents too early</span></li>
+            <li><span class="bullet amber-bg">!</span><span>Pressure to act immediately or keep the offer secret</span></li>
+          </ul>
+        </section>
+
+        <section class="panel mini-panel" id="checklist">
+          <div class="mini-heading"><span class="mini-icon violet">✓</span><div><h2>Quick verification checklist</h2><p>Before you accept an offer</p></div></div>
+          <div class="checklist">
+            <label><input type="checkbox"> I independently searched for the company’s official website.</label>
+            <label><input type="checkbox"> I checked the sender’s email domain and contact details.</label>
+            <label><input type="checkbox"> I understand the role, pay, and responsibilities.</label>
+            <label><input type="checkbox"> I was not asked to pay to secure the role.</label>
+            <label><input type="checkbox"> I checked with a trusted person if something felt off.</label>
+          </div>
+          <div class="checklist-note">If you’re unsure, pause and verify before sharing money or sensitive information.</div>
+        </section>
+
+        <section class="panel mini-panel safer-panel">
+          <div class="mini-heading"><span class="mini-icon green">✓</span><div><h2>Signs of a more credible offer</h2><p>Still verify independently</p></div></div>
+          <ul class="safe-list">
+            <li>Clear role and responsibilities</li>
+            <li>Transparent pay and working terms</li>
+            <li>Verifiable company website and contacts</li>
+            <li>No fee to secure employment</li>
+          </ul>
+        </section>
+      </aside>
+    </section>
+
+    <section class="bottom-cta">
+      <div><p class="eyebrow">PAUSE. CHECK. DECIDE.</p><h2>Good opportunities can handle good questions.</h2><p>Think critically, verify the source, and protect your personal information.</p></div>
+      <a class="button button-secondary" href="#analyzer">Check an offer ↑</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#"><span class="brand-mark" aria-hidden="true">⚠</span><span>Offer<span class="accent">Trap</span></span></a>
+    <p>Built to help students think before they click.</p>
+    <span>Think. Verify. Apply.</span>
+  </footer>
+</body>
+</html>
